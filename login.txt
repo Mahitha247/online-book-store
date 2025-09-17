@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <ul id="cartList"></ul>
+  <p><a href="catalogue.html">Back to Catalogue</a></p>
+
+  <script>
+    // Retrieve cart data from localStorage
+    const savedCart = localStorage.getItem("cart");
+    const items = savedCart ? JSON.parse(savedCart) : [];
+    const list = document.querySelector("#cartList");
+
+    if (items.length === 0) {
+      list.innerHTML = "<li>Your cart is empty.</li>"
